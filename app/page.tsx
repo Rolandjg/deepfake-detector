@@ -1,6 +1,7 @@
 'use client'
 import { useState, useRef } from "react";
 import Reference from "@/components/reference";
+import Nav from "@/components/nav";
 
 const references = [
   {
@@ -27,6 +28,21 @@ const references = [
     title: "ChatGPT Image",
     description: "The bright spots on the edges of the FFT is not natural.",
     filePrefix: "chatgpt"
+  },
+  {
+    title: "Sora Video Generator",
+    description: "Due to how videos are compressed, noise irregularities are obscured.",
+    filePrefix: "sora"
+  },
+  {
+    title: "Z-Image Turbo",
+    description: "Z-Image Turbo is actually pretty convincing.",
+    filePrefix: "zit"
+  },
+  {
+    title: "Flux 2 Dev",
+    description: "Flux 2 has an obviously artificial noise profile.",
+    filePrefix: "flux2"
   },
 ]
 
@@ -323,11 +339,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F] text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
-      <div className="w-full py-8 px-4 bg-gradient-to-r from-red-600 to-red-500 ">
-        <h1 className="font-bold text-4xl">Deep Fake Analyzer</h1>
-        <p className="mt-1 text-white/80 text-md font-bold">Analyze potential deepfake images</p>
+      <div className="shadow-lg shadow-gray-800">
+        <Nav />
       </div>
 
     <div className="mx-auto px-4 py-8">
@@ -347,7 +362,7 @@ export default function Home() {
             <span className="text-white font-medium">FFT Power Spectrum</span> — Shows how noise energy is distributed across frequencies. Bright spots or regular patterns in the spectrum can indicate artifacts from generative model architectures.
           </p>
           <p>
-            Please check the <a href="#reference" className="underline">reference</a> section at the bottom of the page to compare your results with the behavior from other images types.
+            Please check the <a href="#reference" className="underline hover:text-white">reference</a> section at the bottom of the page to compare your results with the behavior from other images types.
           </p>
         </div>
       </div>
@@ -389,7 +404,7 @@ export default function Home() {
               <span className="truncate">{selectedFile.name}</span>
               <button
                 onClick={() => { setSelectedFile(null); setPreview(null); setResults(null); setError(null); }}
-                className="text-gray-500 hover:text-white ml-2"
+                className="text-gray-500 hover:text-white ml-2 cursor-pointer"
               >
                 ✕
               </button>
@@ -440,18 +455,32 @@ export default function Home() {
       {/* Reference section */}
       <div className="mx-auto px-4 pb-10">
         <div className="bg-gray-900 rounded-lg border-3 border-yellow-700/50 p-6" id="reference">
-          <h2 className="font-bold text-xl mb-3 text-center">Reference</h2>
-          <p className="text-md my-2 text-center text-gray-200">Click to expand</p>
-
+          <h2 className="font-bold text-xl  text-center">Reference</h2>
+          <h4 className="text-md mb-3 text-center text-gray-300/60">Single references images, not all image production methods will have the same results.</h4>
           {
             references.map((item) => (
-              <>
+              <div key={item.title}>
                 <div className="bg-gray-700 w-full h-[1px] my-4 rounded-md"></div>
-                <Reference title={item.title} description={item.description} filePrefix={item.filePrefix} key={item.title}/>  
-              </>
+                <Reference title={item.title} description={item.description} filePrefix={item.filePrefix}/>  
+              </div>
             ))
           }
         </div>
+      </div>
+      {/*Footer*/}
+      <div className="px-4 pb-10 w-full">
+        <h3 className="text-center mx-auto text-gray-500 font-bold">Deep Fake Analyzer</h3 >
+        <div className="w-full md:w-2/3 bg-gray-700 h-[2px] mx-auto my-3 rounded-md"></div>
+
+        <p className="text-center mx-auto text-gray-300">Contact: rolandguerriere@proton.me</p>
+        <br />
+
+        <div className="w-full md:w-2/3 bg-gray-700 h-[2px] mx-auto my-3 rounded-md"></div>
+
+        <p className="text-center mx-auto text-gray-300 mb-2">If you found this website helpful and want to send me a tip, you can do so with crytpo.</p>
+        <p className="text-center mx-auto text-gray-300">BTC: bc1quvcyzrgnk5c9t7lavyezl4w8acp4k5ask8c7xy</p>
+        <p className="text-center mx-auto text-gray-300">XMR: 88T49dJSMnQhHBXSXHDcDNXtdLGfhUiGPRmpCEnV8JHfCfYWRMQmJHh6ne6vPHEGee91R1rvp6TpsCx9ZxUTyPxNPwCib5E</p>
+        <p className="text-center mx-auto text-gray-300">XNV: NV2pdV5LdQuD61AAmhAHTSa5DLXbdKZVtZKYWuarqbLJcn6bHu9xGbC1ArKKhUg5fwjgHAhtyCsvydTPXtXg8QpM2yFSdesj9</p>
       </div>
     </div>
   );
