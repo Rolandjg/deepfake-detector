@@ -373,7 +373,7 @@ export default function Home() {
       <div className="mx-auto px-4 pb-8 grid md:grid-cols-2 gap-6">
         {/* Upload panel */}
         <div className="bg-gray-900 rounded-lg border-3 border-green-700/50 p-6">
-          <h2 className="font-bold text-xl mb-5 text-center">Try it out</h2>
+          <h2 className="font-bold text-xl mb-5 text-center">Upload image</h2>
 
           <div
             onClick={() => fileInputRef.current?.click()}
