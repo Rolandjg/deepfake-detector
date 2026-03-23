@@ -10,6 +10,11 @@ const references = [
     filePrefix: "iphone"
   },
   {
+    title: "iPhone - Night Mode",
+    description: "Using the night mode setting will hide some noise hiccups, but have more noise overall.",
+    filePrefix: "nightmode"
+  },
+  {
     title: "JPEG Compression of a Real Image",
     description: "Heavy jpeg compression can hide irregularities in noise.",
     filePrefix: "compressed"
