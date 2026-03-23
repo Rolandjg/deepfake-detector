@@ -44,6 +44,16 @@ const references = [
     description: "Flux 2 has an obviously artificial noise profile.",
     filePrefix: "flux2"
   },
+  {
+    title: "Path Traced Render",
+    description: "Rendered using cycles 2048 steps",
+    filePrefix: "nodenoise"
+  },
+  {
+    title: "Path Traced Render - Denoised",
+    description: "Rendered using cycles 2048 steps with OpenImageDenoise",
+    filePrefix: "denoise"
+  },
 ]
 
 // ─── FFT (Cooley-Tukey radix-2, in-place) ───────────────────────────────────
