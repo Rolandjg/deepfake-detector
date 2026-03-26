@@ -13,7 +13,7 @@ const Reference = ({ title, description, filePrefix }: props) => {
   return (
     <>
       <div onClick={() => setShown(!isShown)} className="cursor-pointer">
-        <h2 className={`font-bold text-xl mb-3 text-center ${!isShown ? `text-gray-500` : `text-white`}`}>{title}</h2>
+        <h2 className={`font-bold text-xl mb-3 text-center ${!isShown ? `text-gray-500 hover:text-white` : `text-white`}`}>{title}</h2>
         {isShown && <p className="text-md my-2 text-center">{description}</p> }
       </div>
       {isShown && 
