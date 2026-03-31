@@ -18,23 +18,31 @@ const Reference = ({ title, description, filePrefix }: props) => {
       </div>
       {isShown && 
       <div className="md:flex justify-center w-full mx-auto items-center gap-3">
-        <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
-          <h4 className="text-lg p-2 text-center">Original Image</h4>
-          <a href={`/examples/${filePrefix}.jpg`} target="_blank">
-            <Image className="rounded-md" src={`/examples/${filePrefix}.jpg`} alt="original" height={800} width={800}/>
-          </a>
-        </div>
-        <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
-          <h4 className="text-lg p-2 text-center">Noise Residual</h4>
-          <a href={`/examples/nr-${filePrefix}.jpg`} target="_blank">
-            <Image className="rounded-md" src={`/examples/nr-${filePrefix}.jpg`} alt="noise residual" height={800} width={800}/>
-          </a>
-        </div>
-        <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
-          <h4 className="text-lg p-2 text-center">Noise Residual FFT</h4>
-          <a href={`/examples/fft-${filePrefix}.jpg`}target="_blank">
-            <Image className="rounded-md" src={`/examples/fft-${filePrefix}.jpg`} alt="noise residual fft" height={800} width={800}/>
-          </a>
+        <div className="columns-2 md:columns-3 lg:columns-4">
+          <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
+            <h4 className="text-lg p-2 text-center">Original Image</h4>
+            <a href={`/examples/${filePrefix}.jpg`} target="_blank">
+              <Image className="rounded-md" src={`/examples/${filePrefix}.jpg`} alt="original" height={400} width={400}/>
+            </a>
+          </div>
+          <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
+            <h4 className="text-lg p-2 text-center">Noise Residual</h4>
+            <a href={`/examples/nr/${filePrefix}.jpg`} target="_blank">
+              <Image className="rounded-md" src={`/examples/nr/${filePrefix}.jpg`} alt="noise residual" height={400} width={400}/>
+            </a>
+          </div>
+          <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
+            <h4 className="text-lg p-2 text-center">Noise Residual FFT</h4>
+            <a href={`/examples/fft/${filePrefix}.jpg`} target="_blank">
+              <Image className="rounded-md" src={`/examples/fft/${filePrefix}.jpg`} alt="noise residual fft" height={400} width={400}/>
+            </a>
+          </div>
+          <div className="bg-gray-800 rounded-md border-1 border-gray-700/50 p-3 font-bold">
+            <h4 className="text-lg p-2 text-center">Local Noise Variance</h4>
+            <a href={`/examples/lnv/${filePrefix}.jpg`} target="_blank">
+              <Image className="rounded-md" src={`/examples/lnv/${filePrefix}.jpg`} alt="noise residual fft" height={400} width={400}/>
+            </a>
+          </div>
         </div>
       </div>
       
