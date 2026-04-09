@@ -69,7 +69,7 @@ const Reference = ({ title, description, filePrefix }: Props) => {
       >
         <h2
           className={`mb-3 text-center text-xl font-bold transition-colors ${
-            isShown ? "text-white" : "text-gray-500 hover:text-white"
+            isShown ? "text-slate-800" : "text-slate-400 hover:text-slate-700"
           }`}
         >
           {title}
@@ -88,9 +88,9 @@ const Reference = ({ title, description, filePrefix }: Props) => {
             {items.map((item) => (
               <div
                 key={item.title}
-                className="rounded-md border border-gray-700/50 bg-gray-800 p-3"
+                className="rounded-sm border border-slate-200 bg-slate-50 p-3"
               >
-                <h4 className="p-2 text-center text-lg font-bold">
+                <h4 className="p-2 text-center text-lg font-bold text-slate-800">
                   {item.title}
                 </h4>
 

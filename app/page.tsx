@@ -817,49 +817,49 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
-      <div className="shadow-lg shadow-gray-800">
+    <div className="min-h-screen bg-slate-50 text-slate-800">
+      <div className="shadow-sm shadow-gray-200">
         <Nav />
       </div>
 
       {/* How it works */}
       <div className="mx-auto px-4 py-8 " >
-        <div className="bg-gray-900 rounded-md border-3 border-blue-700/60 p-6">
-          <h2 className={`font-bold text-xl cursor-pointer mb-3 text-center ${showHow ? `text-white` : `text-gray-500 hover:text-white`}`} onClick={() => {setHow(!showHow)}}>How it works</h2>
-          <div className="space-y-3 text-md text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        <div className="bg-white rounded-md border border-blue-300 shadow-sm p-6">
+          <h2 className={`font-bold text-xl cursor-pointer mb-3 text-center ${showHow ? `text-slate-800` : `text-slate-400 hover:text-slate-700`}`} onClick={() => {setHow(!showHow)}}>How it works</h2>
+          <div className="space-y-3 text-md text-slate-600 leading-relaxed max-w-3xl mx-auto">
             {
-              showHow 
-              && 
+              showHow
+              &&
               <>
                 <p>
-                  This tool does <span className="text-white font-medium">not</span> use AI to decide if an image is fake. Instead, it extracts forensic views that let <span className="text-white font-medium">you</span> judge. Just because an image doesn&apos;t show signs of AI generation, does not mean it is real.
+                  This tool does <span className="text-slate-900 font-medium">not</span> use AI to decide if an image is fake. Instead, it extracts forensic views that let <span className="text-slate-900 font-medium">you</span> judge. Just because an image doesn&apos;t show signs of AI generation, does not mean it is real.
                 </p>
                 <p>
-                  <a className="text-white font-medium underline" href="https://ieeexplore.ieee.org/document/10887712" target="_blank">Noise Residual</a> &mdash; Strips away image content to reveal the underlying noise pattern. Real photos have organic, uniform noise. AI-generated images often show unnatural smoothness, grids, or repeating textures here.
+                  <a className="text-cyan-600 font-medium underline hover:text-cyan-700" href="https://ieeexplore.ieee.org/document/10887712" target="_blank">Noise Residual</a> &mdash; Strips away image content to reveal the underlying noise pattern. Real photos have organic, uniform noise. AI-generated images often show unnatural smoothness, grids, or repeating textures here.
                 </p>
                 <p>
-                  <span className="text-white font-medium">FFT Power Spectrum</span> &mdash; Shows how noise energy is distributed across frequencies. Bright spots or regular patterns in the spectrum can indicate artifacts from generative model architectures.
+                  <span className="text-slate-900 font-medium">FFT Power Spectrum</span> &mdash; Shows how noise energy is distributed across frequencies. Bright spots or regular patterns in the spectrum can indicate artifacts from generative model architectures.
                 </p>
                 <p>
-                  <a className="text-white font-medium underline" target="_blank" href="https://en.wikipedia.org/wiki/Error_level_analysis">Error Level Analysis (ELA)</a> &mdash; Re-compresses the image as JPEG and measures the difference. In an unedited photo, all regions should have similar error levels. Spliced, painted, or AI-generated regions often compress differently. You can adjust the JPEG quality and brightness scale to fine-tune what&apos;s visible.
+                  <a className="text-cyan-600 font-medium underline hover:text-cyan-700" target="_blank" href="https://en.wikipedia.org/wiki/Error_level_analysis">Error Level Analysis (ELA)</a> &mdash; Re-compresses the image as JPEG and measures the difference. In an unedited photo, all regions should have similar error levels. Spliced, painted, or AI-generated regions often compress differently. You can adjust the JPEG quality and brightness scale to fine-tune what&apos;s visible.
                 </p>
                 <p>
-                  <span className="text-white font-medium">Block Artifact Grid</span> &mdash; JPEG compression operates on 8&times;8 pixel blocks. This view measures the gradient energy at every 8-pixel boundary and highlights blocks that deviate from the norm. Red/yellow = grid mismatch (splicing), blue = suspiciously smooth (AI/inpainting), dark green = normal.
+                  <span className="text-slate-900 font-medium">Block Artifact Grid</span> &mdash; JPEG compression operates on 8&times;8 pixel blocks. This view measures the gradient energy at every 8-pixel boundary and highlights blocks that deviate from the norm. Red/yellow = grid mismatch (splicing), blue = suspiciously smooth (AI/inpainting), dark green = normal.
                 </p>
                 <p>
-                  <a className="text-white font-medium underline" target="_blank" href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA Minor Component</a> &mdash; Runs Principal Component Analysis on the RGB channels and shows the least significant component. This decorrelates color information to surface manipulation artifacts, cloning, or inpainting invisible to the naked eye.
+                  <a className="text-cyan-600 font-medium underline hover:text-cyan-700" target="_blank" href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA Minor Component</a> &mdash; Runs Principal Component Analysis on the RGB channels and shows the least significant component. This decorrelates color information to surface manipulation artifacts, cloning, or inpainting invisible to the naked eye.
                 </p>
                 <p>
-                  <span className="text-white font-medium">Local Noise Variance</span> &mdash; Measures the standard deviation of noise in 16&times;16 pixel windows and renders a heatmap. Authentic photos have relatively uniform noise; edited or AI-generated regions often have noticeably different noise levels.
+                  <span className="text-slate-900 font-medium">Local Noise Variance</span> &mdash; Measures the standard deviation of noise in 16&times;16 pixel windows and renders a heatmap. Authentic photos have relatively uniform noise; edited or AI-generated regions often have noticeably different noise levels.
                 </p>
                 <p>
-                  <span className="text-white font-medium">Luminance Gradient</span> &mdash; Computes the Sobel gradient magnitude across the image. Pasted objects often have subtly different edge characteristics &mdash; too sharp, too smooth, or double-edged &mdash; compared to natural edges in the scene.
+                  <span className="text-slate-900 font-medium">Luminance Gradient</span> &mdash; Computes the Sobel gradient magnitude across the image. Pasted objects often have subtly different edge characteristics &mdash; too sharp, too smooth, or double-edged &mdash; compared to natural edges in the scene.
                 </p>
                 <p>
-                  <span className="text-white font-medium">Statistical Moments</span> &mdash; Shows kurtosis, skewness, entropy, and standard deviation for each color channel across a 4&times;4 grid of regions. Real camera noise follows predictable distributions; synthetic or manipulated regions often deviate.
+                  <span className="text-slate-900 font-medium">Statistical Moments</span> &mdash; Shows kurtosis, skewness, entropy, and standard deviation for each color channel across a 4&times;4 grid of regions. Real camera noise follows predictable distributions; synthetic or manipulated regions often deviate.
                 </p>
                 <p>
-                  Please check the <a href="#reference" className="underline hover:text-white">reference</a> section at the bottom of the page to compare your results with the behavior from other image types.
+                  Please check the <a href="#reference" className="text-cyan-600 underline hover:text-cyan-700">reference</a> section at the bottom of the page to compare your results with the behavior from other image types.
                 </p>
 
               </>
@@ -873,31 +873,31 @@ export default function Home() {
 
         {/* Upload panel — sticky sidebar on md+ */}
         <div className="md:w-72 lg:w-80 shrink-0">
-          <div className="md:sticky md:top-6 bg-gray-900 rounded-lg border-3 border-green-700/50 p-6">
-            <h2 className="font-bold text-xl mb-5 text-center">Upload image</h2>
+          <div className="md:sticky md:top-6 bg-white rounded-lg border border-green-300 shadow-sm p-6">
+            <h2 className="font-bold text-xl mb-5 text-center text-slate-800">Upload image</h2>
 
             <div
               onClick={() => fileInputRef.current?.click()}
-              className="border-3 border-dashed border-gray-600 hover:border-gray-400 rounded-lg p-8 flex flex-col items-center justify-center min-h-[180px] cursor-pointer transition-colors"
+              className="border-2 border-dashed border-slate-300 hover:border-cyan-400 rounded-lg p-8 flex flex-col items-center justify-center min-h-[180px] cursor-pointer transition-colors bg-slate-50 hover:bg-cyan-50/30"
             >
               {preview ? (
                 <img src={preview} alt="Preview" className="max-h-40 rounded object-contain" />
               ) : (
                 <>
-                  <svg className="w-8 h-8 text-gray-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <svg className="w-8 h-8 text-slate-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                   </svg>
-                  <p className="text-sm text-gray-400">Click to upload an image</p>
-                  <p className="text-xs text-gray-600 mt-1">PNG, JPG, JPEG</p>
+                  <p className="text-sm text-slate-500">Click to upload an image</p>
+                  <p className="text-xs text-slate-400 mt-1">PNG, JPG, JPEG</p>
                 </>
               )}
               <input ref={fileInputRef} type="file" onChange={onFileChange} accept="image/png, image/jpg, image/jpeg" className="hidden" />
             </div>
 
             {selectedFile && (
-              <div className="mt-3 flex items-center justify-between text-sm text-gray-400 px-1">
+              <div className="mt-3 flex items-center justify-between text-sm text-slate-500 px-1">
                 <span className="truncate">{selectedFile.name}</span>
-                <button onClick={() => { setSelectedFile(null); setPreview(null); setResults(null); setError(null); originalCanvasRef.current = null; }} className="text-gray-500 hover:text-white ml-2 cursor-pointer">&#10005;</button>
+                <button onClick={() => { setSelectedFile(null); setPreview(null); setResults(null); setError(null); originalCanvasRef.current = null; }} className="text-slate-400 hover:text-slate-700 ml-2 cursor-pointer">&#10005;</button>
               </div>
             )}
 
@@ -905,7 +905,7 @@ export default function Home() {
               onClick={onProcessPress}
               disabled={!selectedFile || processing}
               className={`w-full mt-5 py-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer ${
-                selectedFile && !processing ? "bg-red-600 hover:bg-red-500 text-white" : "bg-gray-800 text-gray-600 cursor-not-allowed"
+                selectedFile && !processing ? "bg-cyan-600 hover:bg-cyan-500 text-white shadow-sm" : "bg-slate-100 text-slate-400 cursor-not-allowed"
               }`}
             >
               {processing ? "Analyzing..." : "Submit"}
@@ -914,12 +914,12 @@ export default function Home() {
         </div>
 
         {/* Results panel — responsive columns */}
-        <div className="flex-1 bg-gray-900 rounded-lg border-3 border-red-700/50 p-6">
-          <h2 className="font-bold text-xl mb-4 text-center">Results</h2>
-          {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+        <div className="flex-1 bg-white rounded-lg border border-rose-300 shadow-sm p-6">
+          <h2 className="font-bold text-xl mb-4 text-center text-slate-800">Results</h2>
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           {!results && !error && (
             <div className="flex items-center justify-center min-h-[260px]">
-              <p className="text-sm text-gray-500 text-center">
+              <p className="text-sm text-slate-400 text-center">
                 {processing ? "Processing image... (This might take some time depending on how large your image is)" : "Data will show up here"}
               </p>
             </div>
@@ -928,41 +928,41 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
               {/* 1 - Noise Residual */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Noise Residual</p>
-                <img src={results.residual} alt="Noise residual" onClick={() => window.open(results.residual, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Noise Residual</p>
+                <img src={results.residual} alt="Noise residual" onClick={() => window.open(results.residual, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
               </div>
 
               {/* 2 - FFT */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">FFT Power Spectrum</p>
-                <img src={results.fft} alt="FFT power spectrum" onClick={() => window.open(results.fft, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">FFT Power Spectrum</p>
+                <img src={results.fft} alt="FFT power spectrum" onClick={() => window.open(results.fft, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
               </div>
 
               {/* 3 - ELA */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Error Level Analysis (ELA)</p>
-                <img src={results.ela} alt="Error Level Analysis" onClick={() => window.open(results.ela, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
-                <div className="mt-3 space-y-2 bg-gray-900/60 rounded-lg p-3">
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Error Level Analysis (ELA)</p>
+                <img src={results.ela} alt="Error Level Analysis" onClick={() => window.open(results.ela, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
+                <div className="mt-3 space-y-2 bg-white rounded-lg p-3 border border-slate-200">
                   <div className="flex items-center gap-3">
-                    <label className="text-xs text-gray-400 w-28 shrink-0">JPEG Quality: {elaQuality}%</label>
-                    <input type="range" min={5} max={99} value={elaQuality} onChange={(e) => setElaQuality(Number(e.target.value))} className="flex-1 accent-red-500 h-1" />
+                    <label className="text-xs text-slate-500 w-28 shrink-0">JPEG Quality: {elaQuality}%</label>
+                    <input type="range" min={5} max={99} value={elaQuality} onChange={(e) => setElaQuality(Number(e.target.value))} className="flex-1 accent-cyan-500 h-1" />
                   </div>
                   <div className="flex items-center gap-3">
-                    <label className="text-xs text-gray-400 w-28 shrink-0">Brightness: &times;{elaScale}</label>
-                    <input type="range" min={1} max={80} value={elaScale} onChange={(e) => setElaScale(Number(e.target.value))} className="flex-1 accent-red-500 h-1" />
+                    <label className="text-xs text-slate-500 w-28 shrink-0">Brightness: &times;{elaScale}</label>
+                    <input type="range" min={1} max={80} value={elaScale} onChange={(e) => setElaScale(Number(e.target.value))} className="flex-1 accent-cyan-500 h-1" />
                   </div>
-                  <button onClick={rerunELA} disabled={processing} className="w-full mt-1 py-1.5 rounded text-xs font-semibold bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white transition-colors cursor-pointer disabled:opacity-40">
+                  <button onClick={rerunELA} disabled={processing} className="w-full mt-1 py-1.5 rounded text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800 transition-colors cursor-pointer disabled:opacity-40 border border-slate-200">
                     {processing ? "Reprocessing..." : "Re-run ELA with new settings"}
                   </button>
                 </div>
               </div>
 
               {/* 4 - Block Artifact Grid */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Block Artifact Grid</p>
-                <img src={results.blockGrid} alt="Block Artifact Grid" onClick={() => window.open(results.blockGrid, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
-                <div className="mt-3 flex flex-wrap gap-3 text-xs text-gray-500">
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Block Artifact Grid</p>
+                <img src={results.blockGrid} alt="Block Artifact Grid" onClick={() => window.open(results.blockGrid, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
+                <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500">
                   <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-red-500 inline-block"></span> Grid mismatch</span>
                   <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-blue-500 inline-block"></span> Smooth boundary</span>
                   <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-green-900 inline-block"></span> Normal</span>
@@ -970,16 +970,16 @@ export default function Home() {
               </div>
 
               {/* 5 - PCA Minor Component */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">PCA Minor Component (PC3)</p>
-                <img src={results.pca} alt="PCA Minor Component" onClick={() => window.open(results.pca, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">PCA Minor Component (PC3)</p>
+                <img src={results.pca} alt="PCA Minor Component" onClick={() => window.open(results.pca, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
               </div>
 
               {/* 6 - Local Noise Variance */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Local Noise Variance</p>
-                <img src={results.noiseVariance} alt="Local Noise Variance" onClick={() => window.open(results.noiseVariance, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
-                <div className="mt-3 flex items-center gap-1 text-xs text-gray-500">
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Local Noise Variance</p>
+                <img src={results.noiseVariance} alt="Local Noise Variance" onClick={() => window.open(results.noiseVariance, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
+                <div className="mt-3 flex items-center gap-1 text-xs text-slate-500">
                   <span className="w-4 h-2 rounded-sm inline-block" style={{background:"rgb(0,0,200)"}}></span>
                   <span>Low</span>
                   <span className="w-4 h-2 rounded-sm inline-block ml-2" style={{background:"rgb(0,200,0)"}}></span>
@@ -992,33 +992,33 @@ export default function Home() {
               </div>
 
               {/* 7 - Luminance Gradient */}
-              <div className="bg-gray-800/40 rounded-lg p-4">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Luminance Gradient (Sobel)</p>
-                <img src={results.gradient} alt="Luminance Gradient" onClick={() => window.open(results.gradient, '_blank')} className="w-full rounded border border-gray-700/50 cursor-pointer hover:brightness-110 transition" title="Click to open full size" />
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Luminance Gradient (Sobel)</p>
+                <img src={results.gradient} alt="Luminance Gradient" onClick={() => window.open(results.gradient, '_blank')} className="w-full rounded border border-slate-200 cursor-pointer hover:opacity-90 transition shadow-sm" title="Click to open full size" />
               </div>
 
               {/* 8 - Statistical Moments Table — spans full width */}
-              <div className="bg-gray-800/40 rounded-lg p-4 md:col-span-2 lg:col-span-3">
-                <p className="text-xs text-gray-400 mb-2 uppercase tracking-wide">Statistical Moments (4&times;4 Grid)</p>
-                <div className="overflow-auto max-h-[400px] rounded border border-gray-700/50">
-                  <table className="w-full text-xs text-gray-300">
-                    <thead className="bg-gray-800 sticky top-0">
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-200 md:col-span-2 lg:col-span-3">
+                <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">Statistical Moments (4&times;4 Grid)</p>
+                <div className="overflow-auto max-h-[400px] rounded border border-slate-200">
+                  <table className="w-full text-xs text-slate-700">
+                    <thead className="bg-slate-100 sticky top-0">
                       <tr>
-                        <th className="px-2 py-1.5 text-left text-gray-400">Region</th>
-                        <th className="px-2 py-1.5 text-left text-gray-400">Ch</th>
-                        <th className="px-2 py-1.5 text-right text-gray-400">&sigma;</th>
-                        <th className="px-2 py-1.5 text-right text-gray-400">Skew</th>
-                        <th className="px-2 py-1.5 text-right text-gray-400">Kurt</th>
-                        <th className="px-2 py-1.5 text-right text-gray-400">Entropy</th>
+                        <th className="px-2 py-1.5 text-left text-slate-500">Region</th>
+                        <th className="px-2 py-1.5 text-left text-slate-500">Ch</th>
+                        <th className="px-2 py-1.5 text-right text-slate-500">&sigma;</th>
+                        <th className="px-2 py-1.5 text-right text-slate-500">Skew</th>
+                        <th className="px-2 py-1.5 text-right text-slate-500">Kurt</th>
+                        <th className="px-2 py-1.5 text-right text-slate-500">Entropy</th>
                       </tr>
                     </thead>
                     <tbody>
                       {results.stats.map((s, idx) => (
                         (['r', 'g', 'b'] as const).map((ch, ci) => {
-                          const colors = { r: 'text-red-400', g: 'text-green-400', b: 'text-blue-400' };
+                          const colors = { r: 'text-red-500', g: 'text-green-600', b: 'text-blue-500' };
                           return (
-                            <tr key={`${idx}-${ch}`} className={ci === 0 ? "border-t border-gray-700/40" : ""}>
-                              {ci === 0 && <td className="px-2 py-1 text-gray-500" rowSpan={3}>{s.label}</td>}
+                            <tr key={`${idx}-${ch}`} className={ci === 0 ? "border-t border-slate-200" : ""}>
+                              {ci === 0 && <td className="px-2 py-1 text-slate-400" rowSpan={3}>{s.label}</td>}
                               <td className={`px-2 py-1 font-mono ${colors[ch]}`}>{ch.toUpperCase()}</td>
                               <td className="px-2 py-1 text-right font-mono">{s[ch].std}</td>
                               <td className="px-2 py-1 text-right font-mono">{s[ch].skew}</td>
@@ -1040,12 +1040,12 @@ export default function Home() {
 
       {/* Reference section */}
       <div className="mx-auto px-4 pb-10">
-        <div className="bg-gray-900 rounded-lg border-3 border-yellow-700/50 p-6" id="reference">
-          <h2 className="font-bold text-xl text-center">Reference</h2>
-          <h4 className="text-md mb-3 text-center text-gray-300/60">Single references images, not all image production methods will have the same results.</h4>
+        <div className="bg-white rounded-lg border border-amber-300 shadow-sm p-6" id="reference">
+          <h2 className="font-bold text-xl text-center text-slate-800">Reference</h2>
+          <h4 className="text-md mb-3 text-center text-slate-400">Single references images, not all image production methods will have the same results.</h4>
           {references.map((item) => (
             <div key={item.title}>
-              <div className="bg-gray-700 w-full h-[1px] my-4 rounded-md"></div>
+              <div className="bg-slate-200 w-full h-[1px] my-4 rounded-md"></div>
               <Reference title={item.title} description={item.description} filePrefix={item.filePrefix} />
             </div>
           ))}
@@ -1054,15 +1054,15 @@ export default function Home() {
 
       {/* Footer */}
       <div className="px-4 pb-10 w-full">
-        <h3 className="text-center mx-auto text-gray-500 font-bold">Deep Fake Analyzer</h3>
-        <div className="w-full md:w-2/3 bg-gray-700 h-[2px] mx-auto my-3 rounded-md"></div>
-        <p className="text-center mx-auto text-gray-300">Contact: rolandguerriere@proton.me</p>
+        <h3 className="text-center mx-auto text-slate-400 font-bold">Deep Fake Analyzer</h3>
+        <div className="w-full md:w-2/3 bg-slate-200 h-[2px] mx-auto my-3 rounded-md"></div>
+        <p className="text-center mx-auto text-slate-600">Contact: rolandguerriere@proton.me</p>
         <br />
-        <div className="w-full md:w-2/3 bg-gray-700 h-[2px] mx-auto my-3 rounded-md"></div>
-        <p className="text-center mx-auto text-gray-300 mb-2">If you found this website helpful and want to send me a tip, you can do so with crytpo.</p>
-        <p className="text-center mx-auto text-gray-300">BTC: bc1quvcyzrgnk5c9t7lavyezl4w8acp4k5ask8c7xy</p>
-        <p className="text-center mx-auto text-gray-300">XMR: 88T49dJSMnQhHBXSXHDcDNXtdLGfhUiGPRmpCEnV8JHfCfYWRMQmJHh6ne6vPHEGee91R1rvp6TpsCx9ZxUTyPxNPwCib5E</p>
-        <p className="text-center mx-auto text-gray-300">XNV: NV2pdV5LdQuD61AAmhAHTSa5DLXbdKZVtZKYWuarqbLJcn6bHu9xGbC1ArKKhUg5fwjgHAhtyCsvydTPXtXg8QpM2yFSdesj9</p>
+        <div className="w-full md:w-2/3 bg-slate-200 h-[2px] mx-auto my-3 rounded-md"></div>
+        <p className="text-center mx-auto text-slate-600 mb-2">If you found this website helpful and want to send me a tip, you can do so with crytpo.</p>
+        <p className="text-center mx-auto text-slate-600">BTC: bc1quvcyzrgnk5c9t7lavyezl4w8acp4k5ask8c7xy</p>
+        <p className="text-center mx-auto text-slate-600">XMR: 88T49dJSMnQhHBXSXHDcDNXtdLGfhUiGPRmpCEnV8JHfCfYWRMQmJHh6ne6vPHEGee91R1rvp6TpsCx9ZxUTyPxNPwCib5E</p>
+        <p className="text-center mx-auto text-slate-600">XNV: NV2pdV5LdQuD61AAmhAHTSa5DLXbdKZVtZKYWuarqbLJcn6bHu9xGbC1ArKKhUg5fwjgHAhtyCsvydTPXtXg8QpM2yFSdesj9</p>
       </div>
     </div>
   );
