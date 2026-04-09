@@ -88,7 +88,7 @@ const Reference = ({ title, description, filePrefix }: Props) => {
             {items.map((item) => (
               <div
                 key={item.title}
-                className="rounded-md border border-slate-200 bg-slate-50 p-3"
+                className="rounded-sm border border-slate-200 bg-slate-50 p-3"
               >
                 <h4 className="p-2 text-center text-lg font-bold text-slate-800">
                   {item.title}
