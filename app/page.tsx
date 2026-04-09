@@ -22,7 +22,7 @@ const references = [
   {
     title: "JPEG Compression of a Fake Image",
     description: "Heavy jpeg compression can hide irregularities in noise.",
-    filePrefix: "compressedFake"
+    filePrefix: "compressed-fake"
   },
   {
     title: "Gemini Nano Banana 2",
@@ -52,7 +52,7 @@ const references = [
   {
     title: "Path Traced Render",
     description: "Rendered using cycles 2048 steps",
-    filePrefix: "nodenoise"
+    filePrefix: "noise"
   },
   {
     title: "Path Traced Render - Denoised",
