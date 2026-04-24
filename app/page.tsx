@@ -35,6 +35,11 @@ const references = [
     filePrefix: "chatgpt"
   },
   {
+    title: "ChatGPT Image 2",
+    description: "OpenAI's Image Gen 2 has a similar profile as Image Gen 1",
+    filePrefix: "chatgpt2"
+  },
+  {
     title: "Sora Video Generator",
     description: "Due to how videos are compressed, noise irregularities are obscured.",
     filePrefix: "sora"
