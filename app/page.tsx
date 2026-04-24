@@ -45,6 +45,11 @@ const references = [
     filePrefix: "sora"
   },
   {
+    title: "Seedance 2.0",
+    description: "Due to how videos are compressed, noise irregularities are obscured.",
+    filePrefix: "seedance2"
+  },
+  {
     title: "Z-Image Turbo",
     description: "Z-Image Turbo is actually pretty convincing.",
     filePrefix: "zit"
