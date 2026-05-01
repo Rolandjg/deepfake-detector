@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, type ChangeEvent } from "react";
 import Reference from "@/components/reference";
 import Nav from "@/components/nav";
 
@@ -718,8 +718,8 @@ export default function Home() {
   const originalCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const [showHow, setHow] = useState(false);
 
-  const onFileChange = (event: any) => {
-    const file = event.target.files[0];
+  const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
       setPreview(URL.createObjectURL(file));
@@ -728,6 +728,26 @@ export default function Home() {
       originalCanvasRef.current = null;
     }
   };
+
+  useEffect(() => {
+    const handlePaste = (event: ClipboardEvent) => {
+      const imageItem = Array.from(event.clipboardData?.items ?? []).find((item) => item.type.startsWith("image/"));
+      const file = imageItem?.getAsFile();
+
+      if (!file) return;
+
+      event.preventDefault();
+      setSelectedFile(file);
+      setPreview(URL.createObjectURL(file));
+      setResults(null);
+      setError(null);
+      originalCanvasRef.current = null;
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    };
+
+    window.addEventListener("paste", handlePaste);
+    return () => window.removeEventListener("paste", handlePaste);
+  }, []);
 
   const rerunELA = async () => {
     if (!originalCanvasRef.current || !results) return;
@@ -897,8 +917,8 @@ export default function Home() {
                   <svg className="w-8 h-8 text-slate-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                   </svg>
-                  <p className="text-sm text-slate-500">Click to upload an image</p>
-                  <p className="text-xs text-slate-400 mt-1">PNG, JPG, JPEG</p>
+                  <p className="text-sm text-slate-500">Click to upload or paste an image</p>
+                  <p className="text-xs text-slate-400 mt-1">PNG, JPG, JPEG · Ctrl/Cmd + V supported</p>
                 </>
               )}
               <input ref={fileInputRef} type="file" onChange={onFileChange} accept="image/png, image/jpg, image/jpeg" className="hidden" />
