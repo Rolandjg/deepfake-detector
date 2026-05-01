@@ -917,8 +917,7 @@ export default function Home() {
                   <svg className="w-8 h-8 text-slate-400 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                   </svg>
-                  <p className="text-sm text-slate-500">Click to upload or paste an image</p>
-                  <p className="text-xs text-slate-400 mt-1">PNG, JPG, JPEG · Ctrl/Cmd + V supported</p>
+                  <p className="text-sm text-slate-500 text-center">Click to upload or paste an image</p>
                 </>
               )}
               <input ref={fileInputRef} type="file" onChange={onFileChange} accept="image/png, image/jpg, image/jpeg" className="hidden" />
