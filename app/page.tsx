@@ -5,6 +5,11 @@ import Nav from "@/components/nav";
 
 const references = [
   {
+    title: "DLSR camera (Canon)",
+    description: "DLSR cameras produce a very smooth fft, there are no strange bright spots in the fft produced.",
+    filePrefix: "dlsr"
+  },
+  {
     title: "iPhone - Day Time",
     description: "iPhone images will sometimes produce a distinct grid pattern.",
     filePrefix: "iphone"
@@ -721,7 +726,7 @@ export default function Home() {
   const [elaScale, setElaScale] = useState(20);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const originalCanvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [showHow, setHow] = useState(false);
+  const [showHow, setHow] = useState(true);
 
   const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -860,7 +865,7 @@ export default function Home() {
       {/* How it works */}
       <div className="mx-auto px-4 py-8 " >
         <div className="bg-white rounded-md border border-blue-300 shadow-sm p-6">
-          <h2 className={`font-bold text-xl cursor-pointer mb-3 text-center ${showHow ? `text-slate-800` : `text-slate-400 hover:text-slate-700`}`} onClick={() => {setHow(!showHow)}}>How it works</h2>
+          <h2 className={`font-bold text-xl cursor-pointer mb-3 text-center ${showHow ? `text-slate-800` : `text-slate-400 hover:text-slate-700`}`} onClick={() => {setHow(!showHow)}}>How it works (Please read!)</h2>
           <div className="space-y-3 text-md text-slate-600 leading-relaxed max-w-3xl mx-auto">
             {
               showHow
