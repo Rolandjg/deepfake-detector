@@ -1095,6 +1095,7 @@ export default function Home() {
       <div className="px-4 pb-10 w-full">
         <h3 className="text-center mx-auto text-slate-400 font-bold">Deep Fake Analyzer</h3>
         <div className="w-full md:w-2/3 bg-slate-200 h-[2px] mx-auto my-3 rounded-md"></div>
+        <p className="text-center mx-auto text-slate-600">https://github.com/Rolandjg/deepfake-detector</p>
         <p className="text-center mx-auto text-slate-600">Contact: rolandguerriere@proton.me</p>
         <br />
         <div className="w-full md:w-2/3 bg-slate-200 h-[2px] mx-auto my-3 rounded-md"></div>
